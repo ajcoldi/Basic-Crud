@@ -43,7 +43,7 @@ app.delete('/:id', async (req, res) => {
 })
 app.get('/edit/:id', async (req, res) => {
     const person = await People.findById(req.params.id)
-    res.render('edit', { person: new People()} )
+    res.render('edit', { person: person })
 })
 
 
@@ -61,5 +61,18 @@ app.post('/', async (req, res) => {
     
 })
 
+app.put('/:id', async (req, res) => {
+    req.person = await People.findById(req.params.id)
+    
+    let person = req.person
+        person.name = req.body.name
+        person.age = req. body.age
+    try {
+        person = await person.save()
+        res.redirect('/')
+    } catch {
+        res.send('errorrrrr')
+    }
+})
 
 app.listen(3000, () => console.log('listening on port 3000'))

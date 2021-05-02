@@ -29,7 +29,10 @@
             <tr>
                 <td><%= person.name %></td>
                 <td><%= person.age %></td>
-                <td><a class="btn" href="/<%= person.id %>">view</a></td>
+                <td>
+                    <a class="btn" href="/<%= person.id %>">view</a>
+                    <a class="btn" href="/edit/<%= person.id %>">Edit</a>
+                </td>
             </tr>
         <% }); %>
     </table>
