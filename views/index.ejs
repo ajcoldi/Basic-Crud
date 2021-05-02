@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="pageContainer">
+        <h1>All Names</h1>
+        <form action="/" method="POST">
+            <label>Name</label>
+            <input type="text" name="name">
+            <label>Age</label>
+            <input type="number" name="age">
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    
+ 
+        <table>
+            <tr>
+                <th>Name</th>  
+                <th>Age</th> 
+                <th></th> 
+            </tr>  
+        <% people.forEach(person => { %>
+            <tr>
+                <td><%= person.name %></td>
+                <td><%= person.age %></td>
+                <td><a class="btn" href="/<%= person.id %>">view</a></td>
+            </tr>
+        <% }); %>
+    </table>
+
+    </div>
+</body>
+</html>
